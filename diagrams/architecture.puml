@@ -1,0 +1,29 @@
+@startuml
+
+package "ContractorApp" {
+	ContractorEvents - [ContractorApp]
+}
+
+package "ManagerApp" {
+	ManagerEvents - [ManagerApp]
+}
+
+database "RDBMS for Contractor App" {
+	[CDB]
+}
+
+database "RDBMS for Manager App" {
+	[MDB]
+}
+
+package "MsgBroker" {
+}
+
+ContractorApp ---|> CDB
+ManagerApp ---|> MDB
+ContractorApp --> MsgBroker : consumes_manager_events
+ManagerApp --> MsgBroker : consumes_contractor_events
+MsgBroker ---> ManagerEvents
+MsgBroker ---> ContractorEvents
+
+@enduml

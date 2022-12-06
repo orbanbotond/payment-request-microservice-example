@@ -1,0 +1,37 @@
+@startuml
+
+skinparam component {
+  backgroundColor<<aggregate>> Business
+  backgroundColor<<shared lib>> Green
+}
+
+skinparam class {
+  backgroundColor<<command>> LightSkyBlue
+  backgroundColor<<event>> DarkOrange
+  backgroundColor<<aggregate>> Business
+  backgroundColor<<process>> Violet
+  backgroundColor<<readmodel>> LightViolet
+}
+
+package "ContractorApp" {
+	class "PaymentRequested" <<event>>
+	class "RequestPayment" <<command>> {
+		String description
+		BigInt amount
+		String currency
+	}
+	class "PaymentRequest" <<aggregate>>
+	class "PaymentRequestRM" <<readmodel>>
+}
+
+package "ManagerApp" {
+	class "AcceptPaymentRequest" <<command>>
+	class "RejectPaymentRequest" <<command>>
+	class "PaymentRequestAccepted" <<event>>
+	class "PaymentRequestRejected" <<event>>
+}
+
+ContractorApp --> ManagerApp : consumes_manager_events
+ManagerApp --> ContractorApp : consumes_contractor_events
+
+@enduml
