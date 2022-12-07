@@ -14,7 +14,7 @@ module Payments
         )
         subscribe_and_link_to_stream(
           ->(event) { approved(event) },
-          [Payments::Events::ApprovedRejected]
+          [Payments::Events::PaymentApproved]
         )
       end
 
@@ -37,12 +37,12 @@ module Payments
       end
 
       def rejected(event)
-        request = PaymentRequestReport.find id: event.data.fetch(:id),
+        request = PaymentRequestReport.find event.data.fetch(:id)
         request.update(state: :rejected, cause_of_rejection: event.data.fetch(:cause_of_rejection))
       end
 
       def approved(event)
-        request = PaymentRequestReport.find id: event.data.fetch(:id),
+        request = PaymentRequestReport.find event.data.fetch(:id)
         request.update(state: :approved)
       end
 
