@@ -1,0 +1,17 @@
+div class="container"
+  table class="table table-sm table-striped table-hover" size="sm"
+    thead
+      tr
+        th Payment Request Id
+        th Amount
+        th Currency
+        th Description
+        th State
+    tbody
+      - @payment_requests.each do |payment_request|
+        tr
+          td= payment_request.id
+          td= payment_request.amount
+          td= payment_request.currency
+          td= payment_request.description
+          td= state_info(payment_request)
