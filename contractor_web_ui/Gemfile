@@ -45,12 +45,11 @@ gem 'bootstrap', '~> 5.2.0'
 gem 'simple_form'
 gem 'slim'
 
-gem 'dry-validation'
-
 gem 'infra', path: '../infra'
-
 gem "rails_event_store"
 gem 'payments', path: '../payments'
+
+gem 'karafka'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
