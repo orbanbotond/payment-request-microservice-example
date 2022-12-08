@@ -16,9 +16,9 @@ Process model:
 Steps to launch:
 ----------------
 - `docker compose up`
-- `cd contractor_web_ui & bundle install & bundle exec db:setup & foreman start`
+- `cd contractor_web_ui && bundle install && bundle exec rails db:setup && foreman start`
 - open a new terminal app
-- `cd contractor_web_ui & bundle install & bundle exec db:setup & foreman start`
+- `cd manager_web_ui && bundle install && bundle exec rails db:setup && foreman start`
 
 Steps to play after launch:
 ---------------------------
