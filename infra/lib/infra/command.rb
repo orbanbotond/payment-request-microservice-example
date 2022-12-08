@@ -1,4 +1,8 @@
 module Infra
+  module Types
+    include Dry.Types
+  end
+
   class Command < Dry::Struct
     Invalid = Class.new(StandardError)
 

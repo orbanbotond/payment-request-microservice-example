@@ -1,8 +1,4 @@
 module Infra
-  module Types
-    include Dry.Types
-  end
-
   class Event < RubyEventStore::Event
 
     module WithSchema

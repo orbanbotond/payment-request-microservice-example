@@ -1,0 +1,6 @@
+div class="container"
+  = simple_form_for @payment_request_form, url: payment_requests_path, data: { turbo: false } do |form|
+    = form.input :amount
+    = form.input :currency
+    = form.input :description
+    = form.button :submit,  'Request a Payment'
