@@ -1,8 +1,8 @@
-class CreatePaymentRequestReport < ActiveRecord::Migration[7.0]
+class CreatePaymentRequestToReview < ActiveRecord::Migration[7.0]
   def change
     enable_extension 'pgcrypto' unless extension_enabled?('pgcrypto')
 
-    create_table :payment_request_reports, id: :uuid, default: 'gen_random_uuid()' do |t|
+    create_table :payment_requests_to_review, id: :uuid, default: 'gen_random_uuid()' do |t|
       t.decimal :amount
       t.string :currency
       t.string :description

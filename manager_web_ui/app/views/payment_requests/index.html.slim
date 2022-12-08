@@ -1,0 +1,24 @@
+div class="container"
+  table class="table table-sm table-striped table-hover" size="sm"
+    thead
+      tr
+        th Payment Request Id
+        th Amount
+        th Currency
+        th Description
+        th State
+        th Action
+    tbody
+      - @payment_requests.each do |payment_request|
+        tr
+          td= payment_request.id
+          td= payment_request.amount
+          td= payment_request.currency
+          td= payment_request.description
+          turbo-frame id="payment_reuest_#{payment_request.id}"
+            td= state_info(payment_request)
+            td
+              div id="actions-#{payment_request.id}"
+               - if payment_request.state == 'requested'
+                 = link_to "Reject", reject_payment_request_path(payment_request.id), data: { turbo_method: :put }
+                 = link_to "Approve", approve_payment_request_path(payment_request.id), data: { turbo_method: :put }
