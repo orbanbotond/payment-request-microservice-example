@@ -6,6 +6,12 @@ class PaymentsConsumer < ApplicationConsumer
       payload = message.payload
       command = event_to_command(payload)
       Rails.configuration.command_bus.(command) if command
+    rescue Payments::PaymentRequest::CanRequestOnlyAfterInit
+      puts "Error processing"
+      puts "Error processing"
+      puts "Error processing"
+      puts message.payload
+      puts message.payload
     end
   end
 

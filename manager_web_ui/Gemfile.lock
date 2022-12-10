@@ -225,6 +225,7 @@ GEM
       ffi (~> 1.15)
       mini_portile2 (~> 2.6)
       rake (> 12)
+    redis (4.8.0)
     regexp_parser (2.6.1)
     reline (0.3.1)
       io-console (~> 0.5)
@@ -297,6 +298,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.4)
   rails_event_store
+  redis (~> 4.0)
   selenium-webdriver
   slim
   sprockets-rails

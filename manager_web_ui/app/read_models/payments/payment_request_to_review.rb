@@ -63,5 +63,7 @@ module Payments
     # - description
     # - cause_of_rejection
     # - state: Requested, Approved, Rejected
+
+    after_create_commit -> { broadcast_append_to 'payments_payment_request_to_reviews' }
   end
 end

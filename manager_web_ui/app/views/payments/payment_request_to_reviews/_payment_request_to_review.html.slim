@@ -1,0 +1,11 @@
+tr
+  td= payment_request_to_review.id
+  td= payment_request_to_review.amount
+  td= payment_request_to_review.currency
+  td= payment_request_to_review.description
+  td= state_info(payment_request_to_review)
+  td
+    div id="actions-#{payment_request_to_review.id}"
+     - if payment_request_to_review.state == 'requested'
+       = link_to "Reject", reject_payment_request_path(payment_request_to_review.id), data: { turbo_method: :put }
+       = link_to "Approve", approve_payment_request_path(payment_request_to_review.id), data: { turbo_method: :put }
