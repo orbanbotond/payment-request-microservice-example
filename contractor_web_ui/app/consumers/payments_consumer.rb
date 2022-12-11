@@ -7,6 +7,7 @@ class PaymentsConsumer < ApplicationConsumer
       command = event_to_command(payload)
       Rails.configuration.command_bus.(command) if command
     rescue
+      # This code should be hit only if somebody creates a payment request for the manager app in the manager apps rails c and the payment aggregate with the incoming id does not exists in the consumer app
       puts "The id didn't match"
       puts $!
     end
