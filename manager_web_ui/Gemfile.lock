@@ -87,9 +87,15 @@ GEM
       ruby_event_store (= 2.5.1)
     arkency-command_bus (0.4.1)
       concurrent-ruby
+    autoprefixer-rails (10.4.7.0)
+      execjs (~> 2)
     bindex (0.8.1)
     bootsnap (1.15.0)
       msgpack (~> 1.2)
+    bootstrap (5.2.3)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.11.6, < 3)
+      sassc-rails (>= 2.0.0)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -125,6 +131,7 @@ GEM
       dry-logic (>= 1.4, < 2)
       zeitwerk (~> 2.6)
     erubi (1.11.0)
+    execjs (2.8.1)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -175,6 +182,7 @@ GEM
     nokogiri (1.13.9-arm64-darwin)
       racc (~> 1.4)
     pg (1.4.5)
+    popper_js (2.11.6)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -236,6 +244,14 @@ GEM
       rack
       ruby_event_store (= 2.5.1)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.7.1)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -287,6 +303,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bootstrap (~> 5.2.0)
   capybara
   debug
   importmap-rails
