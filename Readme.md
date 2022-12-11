@@ -11,7 +11,12 @@ These are the parties involved:
 Process model:
 ==============
 - There are 2 processes for each app. Karafka & rails web UI
-- In addition to those there are the docker managed containers runing the zookeeper & kafka & postgresql processes.
+- In addition to those there are the docker managed containers runing the zookeeper & kafka & postgresql processes & redis.
+
+Role of each process:
+ - Kafka serves as a message bus for exchanging events between the consumer and manger app.
+ - Redis serves the Turbo Websocker for Rails 7 for the Realtime UI update
+ - Postgresql acts as a Relational Database for both Contractor and Manager apps.
 
 Steps to launch:
 ----------------
@@ -25,5 +30,5 @@ Steps to play after launch:
 - Step.0.1: open `http://localhost:3000`. Let's call this: `Tab1`. This incorporates the `Contractor Web UI`.
 - Step.0.2: open a new browser tab and open `http://localhost:4000`. Let's call this: `Tab2`. This incorporates the `Manager Web UI`.
 - Step.1: In `Tab1`: click `request new payment`. Then fill the form and `request a new payment`
-- Step.2: Go to `Tab2`, then reload the page. The `payment request` added in the `Tab1` should appear in `Tab2`. Now reject/approve as You wish in `Tab2`
-- Step.3: Go backIn `Tab1`. Reload the page. The `payment request` should have the same state as it was modified in the `Tab2` by the manager.
+- Step.2: The `payment request` added in the `Tab1` should appear in `Tab2`. Now reject/approve as You wish in `Tab2`
+- Step.3: Go backIn `Tab1`. The `payment request` should have the same state as it was modified in the `Tab2` by the manager.
