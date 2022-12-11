@@ -14,6 +14,6 @@ reject_payment_2 = Payments::Commands::RejectPayment.new(id: request_payment_2.i
 
 Rails.configuration.command_bus.(request_payment_0)
 Rails.configuration.command_bus.(request_payment_1)
-Rails.configuration.command_bus.(approve_payment_1)
+# Rails.configuration.command_bus.(approve_payment_1)
 Rails.configuration.command_bus.(request_payment_2)
-Rails.configuration.command_bus.(reject_payment_2)
+# Rails.configuration.command_bus.(reject_payment_2)
