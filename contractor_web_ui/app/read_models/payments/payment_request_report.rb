@@ -56,12 +56,7 @@ module Payments
     end
 
     self.table_name = "payment_request_reports"
-    # fields:
-    # - id
-    # - amount
-    # - currency
-    # - description
-    # - cause_of_rejection
-    # - state: Requested, Approved, Rejected
+
+    after_update_commit -> { broadcast_append_to 'payments_payment_request_reports' }
   end
 end
