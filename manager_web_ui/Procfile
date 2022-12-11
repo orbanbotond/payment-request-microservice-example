@@ -1,2 +1,2 @@
-karafka: bundle exec karafka server
+bunny: bundle exec ruby bunny.rb
 web: bundle exec rails s -p 4000

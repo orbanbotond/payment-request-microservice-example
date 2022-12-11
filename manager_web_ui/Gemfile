@@ -42,7 +42,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootstrap', '~> 5.2.0'
 gem "bootsnap", require: false
-gem 'karafka'
+
+gem "bunny"
 
 gem 'infra', path: '../infra'
 gem "rails_event_store"

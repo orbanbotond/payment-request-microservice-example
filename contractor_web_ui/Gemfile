@@ -48,7 +48,7 @@ gem 'infra', path: '../infra'
 gem "rails_event_store"
 gem 'payments', path: '../payments'
 
-gem 'karafka'
+gem "bunny"
 
 # Use Sass to process CSS
 # gem "sassc-rails"

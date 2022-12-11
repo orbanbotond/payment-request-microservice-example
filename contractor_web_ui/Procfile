@@ -1,2 +1,2 @@
-karafka: bundle exec karafka server
+# karafka: bundle exec karafka server
 web: bundle exec rails s -p 3000
