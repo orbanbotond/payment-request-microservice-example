@@ -15,7 +15,7 @@ Process model:
 
 Role of each process:
  - Kafka serves as a message bus for exchanging events between the consumer and manger app.
- - Redis serves the Turbo Websocker for Rails 7 for the Realtime UI update
+ - Redis serves the Turbo Websocket for Rails 7 for the Realtime UI update.
  - Postgresql acts as a Relational Database for both Contractor and Manager apps.
 
 Steps to launch:
@@ -32,3 +32,13 @@ Steps to play after launch:
 - Step.1: In `Tab1`: click `request new payment`. Then fill the form and `request a new payment`
 - Step.2: The `payment request` added in the `Tab1` should appear in `Tab2`. Now reject/approve as You wish in `Tab2`
 - Step.3: Go backIn `Tab1`. The `payment request` should have the same state as it was modified in the `Tab2` by the manager.
+
+For the evaluation:
+-------------------
+- Controller classes:
+  - manager_web_ui/app/controllers/payment_requests_controller.rb
+  - contractor_web_ui/app/controllers/payment_requests_controller.rb
+
+- Event Handling Code:
+  - manager_web_ui/app/consumers/payments_consumer.rb
+  - contractor_web_ui/app/consumers/payments_consumer.rb
