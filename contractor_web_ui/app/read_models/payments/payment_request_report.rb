@@ -57,6 +57,6 @@ module Payments
 
     self.table_name = "payment_request_reports"
 
-    after_update_commit -> { broadcast_append_to 'payments_payment_request_reports' }
+    after_update_commit -> { broadcast_replace_to 'payments_payment_request_reports', target: "payment_request_report_row-#{self.id}" }
   end
 end
