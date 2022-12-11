@@ -1,10 +1,10 @@
 class PaymentRequestsController < ApplicationController
   def new
-    @payment_request_form = Payments::Request.new
+    @payment_request_form = Payments::RequestForm.new
   end
 
   def create
-    @payment_request_form = Payments::Request.new payment_params
+    @payment_request_form = Payments::RequestForm.new payment_params
     if @payment_request_form.valid?
       command_bus.(Payments::Commands::RequestPayment.new(id: SecureRandom.uuid,
                                                           amount: @payment_request_form.amount,
@@ -27,6 +27,6 @@ private
   end
 
   def payment_params
-    request.parameters[:payments_request]
+    request.parameters[:payments_request_form]
   end
 end

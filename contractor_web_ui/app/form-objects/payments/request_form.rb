@@ -1,5 +1,5 @@
 module Payments
-  class Request
+  class RequestForm
     include ActiveModel::Model
 
     attr_accessor :amount
