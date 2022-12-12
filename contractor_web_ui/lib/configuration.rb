@@ -18,6 +18,8 @@ class Configuration
   end
 
   def enable_event_publishing(cqrs)
+    puts "Enabled RabbitMQ publishing"
     Rabbitmq::Publisher.new.call(cqrs)
+    puts "Enabled RabbitMQ publishing DONE"
   end
 end

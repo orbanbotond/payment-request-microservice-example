@@ -1,10 +1,10 @@
-require_relative 'config/application'
+require_relative 'config/environment'
 
 connection = Bunny.new
 connection.start
 
 channel = connection.create_channel
-queue = channel.queue('payments')
+queue = channel.queue('payments', durable: true)
 
 def event_to_command(event_payload)
   case event_payload["type"]
@@ -19,13 +19,12 @@ def event_to_command(event_payload)
 end
 
 begin
-  puts ' [*] Waiting for messages. To exit press CTRL+C'
-  queue.subscribe(block: true) do |_delivery_info, _properties, body|
-    payload = body
-    command = event_to_command(payload)
+  queue.subscribe(manual_ack: true, block: true) do |delivery_info, _properties, body|
+    payload = JSON.parse(body)
+    command = event_to_command(payload) rescue nil
     Rails.configuration.command_bus.(command) if command
 
-    puts " [x] Received #{body}"
+    channel.ack(delivery_info.delivery_tag)
   end
 rescue Interrupt => _
   connection.close
