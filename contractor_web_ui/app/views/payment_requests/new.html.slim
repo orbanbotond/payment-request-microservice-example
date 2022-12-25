@@ -1,6 +1,12 @@
-div class="container"
+div class="container" data-controller='converter'
   = simple_form_for @payment_request_form, url: payment_requests_path, data: { turbo: false } do |form|
-    = form.input :amount
+    = form.input :amount, input_html: { data: { 'converter-target': 'input', action: 'blur->converter#convert' }}
     = form.input :currency
     = form.input :description
     = form.button :submit,  'Request a Payment'
+  div data-converter-target='converted'
+
+div class="container" data-controller='converter'
+  input data-converter-target='input' data-action='blur->converter#convert'
+  div data-converter-target='converted'
+
