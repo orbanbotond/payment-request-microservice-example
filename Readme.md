@@ -42,3 +42,10 @@ For the evaluation:
 - Event Handling Code:
   - manager_web_ui/app/consumers/payments_consumer.rb
   - contractor_web_ui/app/consumers/payments_consumer.rb
+
+Architecture:
+-------------
+
+![Architecture](https://github.com/orbanbotond/payment-request-microservice-example/blob/master/diagrams/architecture.png)
+
+![Event - Command - Aggregates - ReadModels](https://github.com/orbanbotond/payment-request-microservice-example/blob/master/diagrams/detailed.png)
