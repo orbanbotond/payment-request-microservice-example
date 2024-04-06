@@ -1,2 +1,1 @@
-karafka: bundle exec karafka server
 web: bundle exec rails s -p 4000

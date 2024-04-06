@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   end
 
   root "payment_requests#index"
+
+  match 'pub-sub-callback', to: 'pub_sub_callback#outside_event_have_happened', via: [:get, :post]
 end

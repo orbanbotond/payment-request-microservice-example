@@ -18,6 +18,6 @@ class Configuration
   end
 
   def enable_event_publishing(cqrs)
-    Kafka::Publisher.new.call(cqrs)
+    PubSub::Publisher.new.call(cqrs)
   end
 end

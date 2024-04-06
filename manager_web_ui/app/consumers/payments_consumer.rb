@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
-class PaymentsConsumer < ApplicationConsumer
-  def consume
-    messages.each do |message|
-      payload = message.payload
-      command = event_to_command(payload)
-      Rails.configuration.command_bus.(command) if command
-    end
+class PaymentsConsumer
+  def consume(payload)
+    command = event_to_command(payload)
+    Rails.configuration.command_bus.(command) if command
   end
 
   def event_to_command(event_payload)
@@ -20,12 +17,4 @@ class PaymentsConsumer < ApplicationConsumer
                                             )
     end
   end
-
-  # Run anything upon partition being revoked
-  # def revoked
-  # end
-
-  # Define here any teardown things you want when Karafka server stops
-  # def shutdown
-  # end
 end
