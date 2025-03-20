@@ -12,15 +12,15 @@ module PubSub
       ->(event) do
         payload = { type: event.class , content: event.as_json }
 
-        authorization = "test-contractor:test-contractor-password"
-        headers = { 'Content-Type' => 'application/json; charset=utf-8', "Authorization" => "Basic " + Base64::encode64(authorization) }
-        url = "http://localhost:3001/api/v1/topics/payments/publish"
+        authorization = "manager_key"
+        headers = { 'Content-Type' => 'application/json; charset=utf-8', "Authorization" => "Bearer #{authorization}" }
+        url = "http://localhost:3001/pubsub/topics/1/messages"
 
         RestClient::Request.execute(
           method: :post,
           url: url,
           headers: headers,
-          payload: { payload: payload }.to_json
+          payload: { message: {payload: payload} }.to_json
         )
       end
     end

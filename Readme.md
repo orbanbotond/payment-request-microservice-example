@@ -10,11 +10,14 @@ These are the parties involved:
 
 Process model:
 ==============
-- There are 2 processes for each app. Karafka & rails web UI
-- In addition to those there are the docker managed containers runing the zookeeper & kafka & postgresql processes & redis.
+- Contractor Rails app runs on port 3000
+- Manager Rails app runs on port 4000
+- PubSub Rails app runs on port 3001
+- 3 Rails processes in total: 2web UI. One for the contractor & the manager & pub_sub.
+- In addition to those there are the docker managed containers postgresql processes & redis.
 
 Role of each process:
- - Kafka serves as a message bus for exchanging events between the consumer and manger app.
+ - PubSub serves as a message bus for exchanging events between the consumer and manger app.
  - Redis serves the Turbo Websocket for Rails 7 for the Realtime UI update.
  - Postgresql acts as a Relational Database for both Contractor and Manager apps.
 
