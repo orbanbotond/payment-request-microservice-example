@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/Logic-Optimum/pubsub.git
-  revision: 27bcfd2a3593938befc403df9b1af22915652101
+  revision: e31bf4d79608c47e88cc76597d7ea1811cba9c0c
   specs:
     pub-sub (0.1.0)
       rails (>= 8.0.0.rc2)
